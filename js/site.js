@@ -12,7 +12,6 @@ let fetchRecord = function(slug) {
 
   let title = document.querySelector('.dynamic_title');
   let subtitle = document.querySelector('.dynamic_subtitle');
-  let main_img = document.querySelector('.dynamic_main_img');
   let description = document.querySelector('.dynamic_description');
   let concept = document.querySelector('.dynamic_concept');
   let refining = document.querySelector('.dynamic_refining');
@@ -20,6 +19,14 @@ let fetchRecord = function(slug) {
   let summary = document.querySelector('.dynamic_summary');
   let created_year = document.querySelector('.dynamic_year');
   let institution = document.querySelector('.dynamic_institution');
+
+  let main_img = document.querySelector('.dynamic_main_img');
+  let idea_img = document.querySelector('.dynamic_idea_img');
+  let sketch_img = document.querySelector('.dynamic_sketch_img');
+  let prototype_img = document.querySelector('.dynamic_prototype_img');
+  let process_img = document.querySelector('.dynamic_process_img');
+  let final_product_img = document.querySelector('.dynamic_final_product_img');
+
   // let media = document.querySelector('.dynamic_meida');
   // let role = document.querySelector('.dynamic_role');
   // let credits = document.querySelector('.dynamic_credits');
@@ -30,8 +37,6 @@ let fetchRecord = function(slug) {
     view: "Grid view"
   }).eachPage(function page(records, fetchNextPage) {
     records.forEach(function(record) {
-        main_img.setAttribute('src', record.fields.Project_img[0].thumbnails.full.url);
-
         title.innerHTML = record.fields.Title;
         subtitle.innerHTML = record.fields.Subtitle;
         description.innerHTML = record.fields.Description;
@@ -43,6 +48,14 @@ let fetchRecord = function(slug) {
         institution = record.fields.Summary;
         // role.innerHTML = record.fields.Role;
         // credits.innerHTML = record.fields.Credits;
+
+        main_img.setAttribute('src', record.fields.Project_img[0].thumbnails.full.url);
+        idea_img.setAttribute('src', record.fields.Project_img[1].thumbnails.full.url);
+        sketch_img.setAttribute('src', record.fields.Process_img[0].thumbnails.full.url);
+        prototype_img.setAttribute('src', record.fields.Project_img[2].thumbnails.full.url);
+        process_img.setAttribute('src', record.fields.Process_img[1].thumbnails.full.url);
+        final_product_img.setAttribute('src', record.fields.Project_img[1].thumbnails.full.url);
+
     });
   }, function done(err) {
     if (err) { console.error(err); return; }
@@ -58,7 +71,7 @@ let makeNavigation = function() {
     records.forEach(function(record) {
         let listItem = document.createElement('li');
         let anchor = document.createElement('a');
-        listItem.classList.add('dropdown-item');
+        listItem.classList.add('nav_link');
         let link = 'index.html?' + record.fields.Slug;
 
         anchor.innerHTML = record.fields.Title;
