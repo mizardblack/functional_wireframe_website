@@ -1,3 +1,30 @@
 body {
     margin:0;
+    font-family: Arial, sans-serif;
+}
+
+.main_nav {
+    display: inline-block;
+}
+
+.project_page {
+    width:60%;
+    margin: auto;
+}
+.title_container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 1.2em;
+    font-weight: 200;
+}
+
+footer {
+    text-align: center;
 }
