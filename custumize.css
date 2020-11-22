@@ -1,0 +1,38 @@
+.slider {
+	scroll-snap-type: y mandatory;	
+	-webkit-overflow-scrolling: touch;
+	overflow-y: scroll;
+}
+.section { scroll-snap-align: start;}
+
+.logo {
+    padding-left: 5vw;
+}
+.site_nav {
+    position:absolute; 
+    right:2vw;
+}
+.arrows {
+    position:absolute; 
+    right:20vw;
+}
+
+.cover {
+    height:90vh;
+}
+.cover_content {
+    margin-top: 52.8vh;
+    padding:5vh 0;
+    padding-left: 5vw;
+    color: white;
+    background-color:rgba(0, 0, 0, 0.5) ;
+}
+
+.dynamic_cover_img {
+    position: absolute;
+    height: 90vh;
+    top:10vh;
+    right:0;
+    margin: auto;
+    z-index:-1;
+}

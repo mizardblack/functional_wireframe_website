@@ -20,7 +20,7 @@ let fetchRecord = function(slug) {
   let created_year = document.querySelector('.dynamic_year');
   let institution = document.querySelector('.dynamic_institution');
 
-  let main_img = document.querySelector('.dynamic_main_img');
+  let cover_img = document.querySelector('.dynamic_cover_img');
   let idea_img = document.querySelector('.dynamic_idea_img');
   let sketch_img = document.querySelector('.dynamic_sketch_img');
   let prototype_img = document.querySelector('.dynamic_prototype_img');
@@ -45,11 +45,11 @@ let fetchRecord = function(slug) {
         fabricating.innerHTML = record.fields.Fabricating;
         summary.innerHTML = record.fields.Summary;
         created_year.innerHTML = new Date (record.fields.Created_date).getFullYear();//convret Date to year
-        institution = record.fields.Summary;
+        institution.innerHTML = record.fields.Institution;
         // role.innerHTML = record.fields.Role;
         // credits.innerHTML = record.fields.Credits;
 
-        main_img.setAttribute('src', record.fields.Project_img[0].thumbnails.full.url);
+        cover_img.setAttribute('src', record.fields.Cover_img[0].thumbnails.full.url);
         idea_img.setAttribute('src', record.fields.Project_img[1].thumbnails.full.url);
         sketch_img.setAttribute('src', record.fields.Process_img[0].thumbnails.full.url);
         prototype_img.setAttribute('src', record.fields.Project_img[2].thumbnails.full.url);
@@ -71,7 +71,8 @@ let makeNavigation = function() {
     records.forEach(function(record) {
         let listItem = document.createElement('li');
         let anchor = document.createElement('a');
-        listItem.classList.add('nav_link');
+        listItem.classList.add('dropdown_item');
+        anchor.classList.add('project_link');
         let link = 'index.html?' + record.fields.Slug;
 
         anchor.innerHTML = record.fields.Title;
